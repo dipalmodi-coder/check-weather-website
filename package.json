@@ -4,7 +4,7 @@
   "description": "First Web server with NodeJS and ExpressJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "startWeatherApp": "node src/app.js"
   },
   "keywords": [],
   "author": "Dipal Modi",

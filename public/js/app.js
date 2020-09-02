@@ -9,7 +9,7 @@ const forecastMsg = document.querySelector('#forecastMsg');
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const url = 'http://localhost:3000/weather?address=' + searchInput.value;
+    const url = '/weather?address=' + searchInput.value;
 
     // Before fetch, add loading.. msg.
     loadingMsg.textContent = 'Loading.....';

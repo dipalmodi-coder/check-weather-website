@@ -11,7 +11,9 @@ const forecast = require('./utils/forecast');
 // Create an app variable with express function.
 // Use the app variable to call various express features.
 const app = express();
-const port = 3000;
+// Heroku will assign value to this env. variable
+// Or default value as 3000
+const port = process.env.PORT || 3000;
 
 // Set up path configs for public and views folders
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -95,5 +97,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Server started on port 3000!');
+    console.log('Server started on port ' + port + '!');
 });
