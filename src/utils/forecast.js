@@ -10,7 +10,7 @@ const getForecast = (location, callback) => {
     const units = 'f';
     const access_key = '894b357133db5b28d145ca6441762d09';
     const query = location;
-    
+
     request({
         // Using short hand properties, name of const is same as object properties
         // url: url can be replaced by just url in the request object
@@ -33,6 +33,7 @@ const getForecast = (location, callback) => {
                 feelslike: body.current.feelslike,
                 condition: body.current.weather_descriptions,
                 location: body.location.name + ', ' + body.location.country,
+                weather_icon: body.current.weather_icons[0]
             });
         }
     });

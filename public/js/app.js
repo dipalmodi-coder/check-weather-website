@@ -5,6 +5,7 @@ const loadingMsg = document.querySelector('#loadingMsg');
 const errorMsg = document.querySelector('#errorMsg');
 const locationMsg = document.querySelector('#locationMsg');
 const forecastMsg = document.querySelector('#forecastMsg');
+const weatherImage = document.querySelector('#weatherImage');
 
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -16,6 +17,7 @@ weatherForm.addEventListener('submit', (event) => {
     // Clear errorMsg
     errorMsg.textContent = '';
     locationMsg.textContent = '';
+    weatherImage.innerHTML = '';
     forecastMsg.textContent = '';
 
     fetch(url).then((respose) => {
@@ -29,9 +31,12 @@ weatherForm.addEventListener('submit', (event) => {
             loadingMsg.textContent = '';
             // Display current foreCast
             locationMsg.textContent = 'Location: ' + data.forecast.location;
+
             var forecastMsgStr = 'Current temperature is ' + data.forecast.temperature + 'F. It feels like ' + data.forecast.feelslike + 'F. Condition is expected to be ' + data.forecast.condition[0] + '.';
             forecastMsg.textContent = forecastMsgStr;
+
+            const image = data.forecast.weather_icon;
+            weatherImage.innerHTML = '<img src="' + image + '" height="75" width="75"></img>';
         });
     });
 });
-
